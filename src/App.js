@@ -15,8 +15,12 @@ import { io } from 'socket.io-client';
 import { useEffect, useRef, useState } from 'react';
 
 let username = '';
-console.log(process.env.SERVER_URL || 'localhost:3001');
-const socket = io(process.env.SERVER_URL || 'localhost:3001', {
+console.log('url is :' + process.env.SERVER_URL);
+
+if (process.env.SERVER_URL === undefined) {
+  process.env.SERVER_URL = 'localhost:3001';
+}
+const socket = io(process.env.SERVER_URL, {
   withCredentials: true,
   extraHeaders: {
     'sa-client': 'client',
