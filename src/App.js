@@ -15,7 +15,7 @@ import { io } from 'socket.io-client';
 import { useEffect, useRef, useState } from 'react';
 import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
-disableReactDevTools();
+//disableReactDevTools();
 
 let username = '';
 let server_url = '';
