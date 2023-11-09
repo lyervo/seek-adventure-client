@@ -13,6 +13,9 @@ import {
 import './App.css';
 import { io } from 'socket.io-client';
 import { useEffect, useRef, useState } from 'react';
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
+
+disableReactDevTools();
 
 let username = '';
 let server_url = '';
@@ -109,6 +112,8 @@ function App() {
     messageInput.current.value = '';
     socket.emit('message', author, message);
   };
+
+  console.profile();
 
   return (
     <BraidProvider theme={wireframe} className='App'>
